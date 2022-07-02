@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple2</title>
+  </head>
+  <body>
+    <h2>Afficher un fichier JSON à partir d'une URL</h2>
+    <div id="demo"></div>
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", "http://localhost/TP3/Listeetudiants.json", true);
+      xmlhttp.send();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArr = JSON.parse(this.responseText);
+          myFunction(myArr);
+        }
+      };
+      function myFunction(arr) {
+        console.log(arr);
+        var out = "";
+        for (var i = 0 ; i<arr.length;i++) {
+         out += arr[i].nom + " " + arr[i].prenom + "<br>";
+        }
+        document.getElementById("demo").innerHTML = out;
+      }
+    </script>
+  </body>
+</html>

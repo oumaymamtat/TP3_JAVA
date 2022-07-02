@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Exemple 1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Créer un objet à partir d'une chaine JSON</h1>
+    <p id="demo"></p>
+    <script>
+        var text = '{"etudiants":[{"nom":"X","prenom":"Y"},{"nom":"XX","prenom":"YY"},{"nom":"XXX","prenom":"YYY"}]}';
+        obj = JSON.parse(text);
+        document.getElementById("demo").innerHTML = obj.etudiants[1].nom+" "+obj.etudiants[1].prenom;
+    </script>
+</body>
+</html>
